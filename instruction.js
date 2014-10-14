@@ -1,11 +1,46 @@
 /*
+A TYPE
+#MOV [opcode 5 bits][imm 27 bits]
 
-#ADD [opcode-4 bits][return reg - 5 bits][r1 - 5 bits][r2 - 5 bits][imm val - 13]
-#SUB Same as above
-#AND Same as above, if imm is 0 default to 1
-#OR  Same as AND, except imm doesnt default to 1
-#NOR Same as AND
-#SLL [opcode 4 bits][reg to be shifted - 5 bits][]
+
+B TYPE
+#ADD [opcode 5 bits][return reg 5 bits][r1 5 bits][r2 5 bits][imm val 12 bits] r0 = r1 + r2 + imm
+#SUB [opcode 5 bits][return reg 5 bits][r1 5 bits][r2 5 bits][imm val 12 bits] r0 = r1 - r2 - imm
+#MUL [opcode 5 bits][return reg 5 bits][r1 5 bits][r2 5 bits][imm val 12 bits] r0 = r1 * r2 * imm (if imm = 0, default to 1)
+#DIV [opcode 5 bits][return reg 5 bits][r1 5 bits][r2 5 bits][imm val 12 bits] r0 = r1 / r2 / imm (if imm = 0, default to 1)
+#AND [opcode 5 bits][return reg 5 bits][r1 5 bits][r2 5 bits][imm val 12 bits] if imm is 0 default to 1
+#OR  [opcode 5 bits][return reg 5 bits][r1 5 bits][r2 5 bits][imm val 12 bits] except imm doesnt default to 1
+#NOR [opcode 5 bits][return reg 5 bits][r1 5 bits][r2 5 bits][imm val 12 bits] if imm is 0 default to 1
+
+C TYPE
+#SLL [opcode 5 bits][shift  reg 5 bits][shift imm 23] (shift left logical)
+#SRL [opcode 5 bits][shift  reg 5 bits][shift imm 23] (shift right logical)
+
+D TYPE
+#SLT [opcode 5 bits][return reg 5 bits][reg1 5 bits][reg2 5 bits] (return true if one reg is less than another)
+
+
+E TYPE
+#JMP [opcode 5 bits][imm 27 bits]
+#JMR [opcode 5 bits][reg 5  bits]
+
+F TYPE
+#BEQ [opcode 5 bits][dest reg 5 bits][r1 5 bits][r2 5 bits][offset 17 bits] branch if equal
+#BNE [opcode 5 bits][dest reg 5 bits][r1 5 bits][r2 5 bits][offset 17 bits] branch if not equal
+
+G TYPE
+#BLEZ[opcode 5 bits][dest reg 5 bits][r1 5 bits][offset 22 bits] branch if less than or equal to 0
+#BGTZ[opcode 5 bits][dest reg 5 bits][r1 5 bits][offset 22 bits] branch if greater than or equal to 0
+
+
+H TYPE
+#LDR [opcode 5 bits][return reg 5 bits][addr reg 5 bits][offset 17 bits]
+#STR [opcode 5 bits][origin reg 5 bits][addr reg 5 bits][offset 17 bits]
+
+
+I TYPE
+#HLT [opcode 5 bits]
+#NOP [opcode 5 bits]
 
 
 */
@@ -30,17 +65,32 @@ function Instruction(iValue){
 						}
 						this.parts 		= [this.bitString.substr(0,5), this.bitString.substr(5,5), this.bitString.substr(10, 5), this.bitString.substr(15)];
 						this.opCode 	= this.parts[0];
-						if(this.opCode >= 0 && this.opCode < 7){
+						if(this.opCode === 0){
 							this.opType = "A";
 						}
-						else if(this.opCode >= 7 && this.opCode < 11){
+						else if(this.opCode > 0 && this.opCode <= 7){
 							this.opType = "B";
 						}
-						else if(this.opCode >= 11 && this.opCode < 13){
-							this.opType = "M";
+						else if(this.opCode > 7 && this.opCode <= 9){
+							this.opType = "C";
+						}
+						else if(this.opCode === 10){
+							this.opType = "D";
+						}
+						else if(this.opCode > 10 && this.opCode <= 12){
+							this.opType = "E";
+						}
+						else if(this.opCode > 12 && this.opCode <= 14{
+							this.opType = "F";
+						}
+						else if(this.opCode > 14 && this.opCode <= 16){
+							this.opType = "G";
+						}
+						else if(this.opCode > 16 && this.opCode < 18){
+							this.opType = "H";
 						}
 						else{
-							this.opType = "H";
+							this.opType = "I";
 						}
 						return {value: this.value, bitString: this.bitString, parts: this.parts, opCode: this.opCode, opType: this.opType};
 					}
