@@ -13,8 +13,8 @@ B TYPE
 #NOR [opcode 5 bits][return reg 5 bits][r1 5 bits][r2 5 bits][imm val 12 bits] if imm is 0 default to 1
 
 C TYPE
-#SLL [opcode 5 bits][shift  reg 5 bits][shift imm 23] (shift left logical)
-#SRL [opcode 5 bits][shift  reg 5 bits][shift imm 23] (shift right logical)
+#SLL [opcode 5 bits][shift  reg 5 bits][shift imm 22] (shift left logical)
+#SRL [opcode 5 bits][shift  reg 5 bits][shift imm 22] (shift right logical)
 
 D TYPE
 #SLT [opcode 5 bits][return reg 5 bits][reg1 5 bits][reg2 5 bits] (return true if one reg is less than another)
@@ -22,6 +22,8 @@ D TYPE
 
 E TYPE
 #JMP [opcode 5 bits][imm 27 bits]
+
+F TYPE
 #JMR [opcode 5 bits][reg 5  bits]
 
 F TYPE
@@ -63,34 +65,43 @@ function Instruction(iValue){
 						if(this.bitString.length < 32){
 							this.bitString = new Array(33-this.bitString.length).join('0') + this.bitString;
 						}
+						this.parts 		= [];
 						this.parts 		= [this.bitString.substr(0,5), this.bitString.substr(5,5), this.bitString.substr(10, 5), this.bitString.substr(15)];
-						this.opCode 	= this.parts[0];
+						this.opCode 	= this.bitString.substr(0,5);
 						if(this.opCode === 0){
 							this.opType = "A";
 						}
 						else if(this.opCode > 0 && this.opCode <= 7){
 							this.opType = "B";
+							this.parts 	= [this.bitString.substr(0,5), this.bitString.substr(5,5), this.bitString.substr(10, 5), this.bitString.substr(15, 5), this.bitString.substr(20)];
+							
 						}
 						else if(this.opCode > 7 && this.opCode <= 9){
 							this.opType = "C";
+							this.parts 	= [this.bitString.substr(0,5), this.bitString.substr(5,5), this.bitString.substr(22)];
 						}
 						else if(this.opCode === 10){
 							this.opType = "D";
+							this.parts 	= [this.bitString.substr(0,5), this.bitString.substr(5,5), this.bitString.substr(10, 5), this.bitString.substr(15, 5)];
 						}
-						else if(this.opCode > 10 && this.opCode <= 12){
+						else if(this.opCode === 11){
 							this.opType = "E";
+							this.parts 	= [this.bitString.substr(0,5), this.bitString.substr(5,5), this.bitString.substr(10, 5), this.bitString.substr(15, 5)];
 						}
-						else if(this.opCode > 12 && this.opCode <= 14{
+						else if(this.opCode === 12){
 							this.opType = "F";
 						}
-						else if(this.opCode > 14 && this.opCode <= 16){
+						else if(this.opCode > 12 && this.opCode <= 14{
 							this.opType = "G";
 						}
-						else if(this.opCode > 16 && this.opCode < 18){
+						else if(this.opCode > 14 && this.opCode <= 16){
 							this.opType = "H";
 						}
-						else{
+						else if(this.opCode > 16 && this.opCode < 18){
 							this.opType = "I";
+						}
+						else{
+							this.opType = "J";
 						}
 						return {value: this.value, bitString: this.bitString, parts: this.parts, opCode: this.opCode, opType: this.opType};
 					}
@@ -101,7 +112,15 @@ function Instruction(iValue){
 		fetchReg: function(registers){
 			if(this.opType === null){
 				return false;
-			}			
+			}
+			switch(this.opType){
+				case "A":
+					//do nothing..?
+				break;
+				case "B":
+					return {r1: registers[]}
+				break;
+			}	
 
 		}
 	}
