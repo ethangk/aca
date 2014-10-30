@@ -1,1 +1,17 @@
+<input type="button" onclick="readTextFile('vector.asm');" value="Vector" /> 
+<input type="button" onclick="readTextFile('simple.asm');" value="Simple" />
+<input type="button" onclick="readTextFile('sort.asm');" value="Sort" />
+<input type="button" onclick="nextStep(exobjects);" value="Step" />
+<input type="button" onclick="run(exobjects);" value="Run" /><br />
+<textarea id="textbox" style="width: 300px; height: 500px;"></textarea>
+<div id="registers" style="float: right;"></div>
+<div id="memory" style="float: right; margin-right: 20px;"></div>
+
+<script type="text/javascript" src="busses.js"></script>
+<script type="text/javascript" src="instructionFetch.js"></script>
+<script type="text/javascript" src="decode.js"></script>
+<script type="text/javascript" src="execute.js"></script>
+<script type="text/javascript" src="memoryAccess.js"></script>
+<script type="text/javascript" src="writeBack.js"></script>
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="lib.js"></script>

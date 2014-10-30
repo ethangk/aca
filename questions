@@ -1,0 +1,5 @@
+PC on branch, is it updated in decode/wb or ex - 
+Can we assume that the instructions are correct?
+Recursion - do we need to support it
+data in instruction memory?
+array in memory - where does it go?
