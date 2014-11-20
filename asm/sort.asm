@@ -23,6 +23,6 @@ swap
 	str $r5, [array, $r0]
 	jmp $r30
 numItems
-	.word 10
+	.word 14
 array
-	.word 15,22, 3, 19, 55, 11, 23, 4, 5, 6
+	.word 15,22, 3, 19, 55, 11, 23, -4, 5, 6, 14, 15, 23, 55
