@@ -3,15 +3,18 @@
 <input type="button" onclick="readTextFile('gcd.asm');" value="GCD" />
 <input type="button" onclick="nextStep(exobjects);" value="Step" />
 <input type="button" onclick="run(exobjects);" value="Run" /><br />
-<textarea id="textbox" style="width: 300px; height: 500px;"></textarea>
-<div id="registers" style="float: right;">
-	<div id="pipeline">
+<div style="float: left;">
+<div id="pipeline">
 	</div>
+<textarea id="textbox" style="width: 300px; height: 500px;"></textarea>
+</div><br />
+<div id="memory" style="margin-left: 60%;"></div>
+</div>
+<div style="float: right;">
 	<div id="registers">
 	</div>
-</div>
-<div id="memory" style="float: right; margin-right: 20px;"></div>
 
+	
 <script type="text/javascript" src="lib/busses.js"></script>
 <script type="text/javascript" src="lib/instructionFetch.js"></script>
 <script type="text/javascript" src="lib/decode.js"></script>
