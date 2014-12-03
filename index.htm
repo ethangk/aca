@@ -3,7 +3,8 @@
 <input type="button" onclick="readTextFile('gcd.asm');" value="GCD" />
 <input type="button" onclick="readTextFile('simple.asm');" value="Simple" />
 <input type="button" onclick="nextStep(exobjects);" value="Step" />
-<input type="button" onclick="run(exobjects);" value="Run" /><br />
+<input type="button" onclick="run(exobjects);" value="Run" />
+<input type="button" onclick="logRob();" value="logRob" /><br />
 <div style="float: left;">
 <div id="pipeline">
 	</div>
@@ -17,6 +18,8 @@
 
 	
 <script type="text/javascript" src="lib/busses.js"></script>
+<script type="text/javascript" src="lib/reservationStation.js"></script>
+<script type="text/javascript" src="lib/reorderBuffer.js"></script>
 <script type="text/javascript" src="lib/arithBlock.js"></script>
 <script type="text/javascript" src="lib/instructionFetch.js"></script>
 <script type="text/javascript" src="lib/decode.js"></script>
