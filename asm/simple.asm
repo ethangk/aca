@@ -11,5 +11,5 @@ start
 	mov $r9, #9
 	add $r1, $r2, $r3
 	add $r2, $r1, $r4
-	add $r3, $r2, $r3
+	add $r3, $r2, $r1
 	hlt
