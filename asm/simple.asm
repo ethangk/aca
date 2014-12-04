@@ -14,4 +14,6 @@ start
 	add $r3, $r4, $r4
 	str $r2, [$r1, #2]
 	str $r3, [$r2, #3]
+	mov $r15, #14
+	ldr $r10, $r15
 	hlt
