@@ -9,7 +9,9 @@ start
 	mov $r7, #7
 	mov $r8, #8
 	mov $r9, #9
-	add $r1, $r2, $r3
-	add $r2, $r1, $r4
-	add $r3, $r2, $r1
+	add $r1, $r9, $r9
+	str $r1, [$r0, #1]
+	add $r3, $r4, $r4
+	str $r2, [$r1, #2]
+	str $r3, [$r2, #3]
 	hlt
