@@ -1,5 +1,5 @@
 start
-	mov $r0, #0
+	mov $r0, #1
 	mov $r1, #1
 	mov $r2, #2
 	mov $r3, #3
@@ -15,5 +15,4 @@ start
 	str $r2, [$r1, #2]
 	str $r3, [$r2, #3]
 	mov $r15, #14
-	ldr $r10, $r15
 	hlt
