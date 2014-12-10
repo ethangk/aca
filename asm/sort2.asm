@@ -6,10 +6,13 @@ start
 	add $r10, $r10, #4
 loopStart
 	mov $r0, #0
-	beq end, $r1, $r2
 	sub $r1, $r1, #4
+	bneq innerLoop, $r1, $r2
+	jmp end
 innerLoop
-	beq loopStart, $r0, $r1
+	bneq innerInnerLoop, $r0, $r1
+	jmp loopStart
+innerInnerLoop
 	add $r3, $r0, $r10
 	ldrn $r4, [$r0,array]
 	ldrn $r5, [$r3,array]

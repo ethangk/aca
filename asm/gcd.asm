@@ -15,6 +15,6 @@ subB
 end
 	hlt
 itemA
-	.word 1084
+	.word 16
 itemB
-	.word 89
+	.word 25
