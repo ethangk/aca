@@ -1,8 +1,18 @@
-<input type="button" onclick="readTextFile('vector3.asm');" value="Vector" /> 
+<!-- <input type="button" onclick="readTextFile('vector3.asm');" value="Vector" /> 
 <input type="button" onclick="readTextFile('sort2.asm');" value="Sort2" />
 <input type="button" onclick="readTextFile('sort.asm');" value="Sort" />
 <input type="button" onclick="readTextFile('gcd.asm');" value="GCD" />
-<input type="button" onclick="readTextFile('simple.asm');" value="Simple" />
+<input type="button" onclick="readTextFile('simple.asm');" value="Simple" /> -->
+<select name="value" onChange="readTextFile(this.value);">
+    <option value="">-----</option><br />
+    <option value="vector3.asm">Vector</option><br />
+    <option value="sort.asm">Sort</option><br />
+    <option value="sort2.asm">Sort2</option><br />
+    <option value="sortSimple.asm">Sort simple</option><br />
+    <option value="gcd.asm">GCD</option><br />
+    <option value="simple.asm">Simple</option><br />
+    <option value="simple2.asm">Simple2</option><br />
+</select>
 <input type="button" onclick="nextStep(exobjects);" value="Step" />
 <input type="button" onclick="run(exobjects);" value="Run" />
 <input type="button" onclick="logUnits();" value="logUnits" />
