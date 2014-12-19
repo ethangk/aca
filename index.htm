@@ -3,15 +3,20 @@
 <input type="button" onclick="readTextFile('sort.asm');" value="Sort" />
 <input type="button" onclick="readTextFile('gcd.asm');" value="GCD" />
 <input type="button" onclick="readTextFile('simple.asm');" value="Simple" /> -->
+
+<table id="res" style="padding-right: 50%; font: 10px helvetica; "></table>
 <select name="value" onChange="readTextFile(this.value);">
-    <option value="">-----</option><br />
-    <option value="vector3.asm">Vector</option><br />
-    <option value="sort.asm">Sort</option><br />
-    <option value="sort2.asm">Sort2</option><br />
-    <option value="sortSimple.asm">Sort simple</option><br />
-    <option value="gcd.asm">GCD</option><br />
-    <option value="simple.asm">Simple</option><br />
-    <option value="simple2.asm">Simple2</option><br />
+    <option value="">-----</option>
+    <option value="vector3.asm">Vector</option>
+    <option value="vector-bad.asm">Vector-bad</option>
+    <option value="sort.asm">Sort</option>
+    <option value="sort2.asm">Sort2</option>
+    <option value="sortSimple.asm">Sort simple</option>
+    <option value="gcd.asm">GCD</option>
+    <option value="simple.asm">Simple</option>
+    <option value="simple2.asm">Simple2</option>
+    <option value="branching.asm">Branching-Bad</option>
+    <option value="branching-good.asm">Branching-Good</option>
 </select>
 <input type="button" onclick="nextStep(exobjects);" value="Step" />
 <input type="button" onclick="run(exobjects);" value="Run" />

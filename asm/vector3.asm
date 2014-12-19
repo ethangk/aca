@@ -16,8 +16,8 @@ loopBulk
 end
 	hlt
 numItems
-	.word 5
+	.word 10
 arrayA
-	.word 1, 2, 3, 4, 5
+	.word 1, 2, 3, 4, 5, 1, 2, 3, 4, 5
 arrayB
-	.word 9, 8, 7, 6, 5
+	.word 9, 8, 7, 6, 5, 9, 8, 7, 6, 5
